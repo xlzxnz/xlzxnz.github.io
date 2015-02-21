@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script type="text/javascript">
+var t;
+
+function calculateTimeSpan()
+{
+	var startDate=new Date("2015/01/07 00:00:00");
+	var now=new Date();
+
+	var date3=now.getTime()-startDate.getTime();
+	var days=Math.floor(date3/(24*3600*1000));
+
+	var leave1=date3%(24*3600*1000);
+	var hours=Math.floor(leave1/(3600*1000));
+
+	var leave2=leave1%(3600*1000);
+	var minutes=Math.floor(leave2/(60*1000));
+
+	var leave3=leave2%(60*1000);
+	var seconds=Math.round(leave3/1000);
+
+	document.getElementById('timeSpan').innerHTML=days+" days "+hours+" hours "+minutes+" minutes "+seconds+" seconds ";
+
+	t=setTimeout("calculateTimeSpan()",1000);
+}
+
+</script>
+</head>
+
+<style>
+
+body {font-family: sans-serif;}
+
+img
+{
+	position:absolute;
+	bottom:5%;
+	z-index:-1
+}
+
+.txt
+{
+	position:absolute;
+	left:60%;
+	top:40%
+}
+
+.timeSpan
+{
+	color: #c02010;
+}
+
+</style>
+
+<body onload="calculateTimeSpan()">
+<div class="txt">
+	<h2>Niu Niu,</h2>
+	<p>It has been</p>
+	<h4 class="timeSpan" id="timeSpan"></h4>
+	<p>since I falled in love with you.</p>
+	<p>No matter what happens, my heart will go on...</p>
+</div>
+<div>
+	<img class="normal" src="images/lovetree.jpg" />
+</div>
+</body>
+
+</html>
