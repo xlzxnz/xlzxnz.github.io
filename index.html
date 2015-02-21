@@ -24,6 +24,15 @@ function calculateTimeSpan()
 
 	document.getElementById('timeSpan').innerHTML=days+" days "+hours+" hours "+minutes+" minutes "+seconds+" seconds ";
 
+	var lastLineText = "No matter what happens, my heart will go on";
+	if (seconds % 3 == 0) {
+		document.getElementById('lastLine').innerHTML = lastLineText + "."
+	} else if (seconds % 3 == 1) {
+		document.getElementById('lastLine').innerHTML = lastLineText + ".."
+	} else if (seconds % 3 == 2) {
+		document.getElementById('lastLine').innerHTML = lastLineText + "..."
+	}
+
 	t=setTimeout("calculateTimeSpan()",1000);
 }
 
@@ -61,7 +70,7 @@ img
 	<p>It has been</p>
 	<h4 class="timeSpan" id="timeSpan"></h4>
 	<p>since I falled in love with you.</p>
-	<p>No matter what happens, my heart will go on...</p>
+	<p id="lastLine">No matter what happens, my heart will go on...</p>
 </div>
 <div>
 	<img class="normal" src="images/lovetree.jpg" />
